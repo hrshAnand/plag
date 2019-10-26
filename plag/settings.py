@@ -124,6 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
+STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 LOGIN_URL = '/plagapp/user_login/'

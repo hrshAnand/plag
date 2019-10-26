@@ -9,7 +9,7 @@
     margin-left: 25%;
     margin-right: 25%;
     height:75%;
-    padding-top: 7%;
+    padding-top: 0%;
     color: white;
   }
   
@@ -26,6 +26,7 @@
   }
   
   .card-signin .card-body {
+    background: #777
     padding: 2rem;
   }
   
