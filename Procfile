@@ -1,0 +1,1 @@
+web: gunicorn plag.wsgi --log-file -
