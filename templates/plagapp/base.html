@@ -7,24 +7,28 @@
     <!-- Latest compiled and minified CSS -->
     <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/main.css' %}">
     <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/util.css' %}">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-  <body background="#f8f8f8" =#f8f8f8>
-    <nav class="navbar navbar-default">
+  <body>
+    <!-- <nav class="navbar navbar-default">
       <div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" style="float: right;">
           {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
           {% else %}
-            <li><a class="navbar-link" href="{% url 'plagapp:register' %}">Register</a></li>
+            <li></li>
             <li><a class="navbar-link" href="{% url 'plagapp:user_login' %}">Login</a></li>
           {% endif %}
 </ul>
       </div>
-    </nav>
+    </nav> -->
     <div>
     {% block body_block %}
     {% endblock %}
     </div>
+  <script src="{% static 'js/anime.min.js' %}"></script>
+  <script src="{% static 'js/segment.min.js' %}"></script>
+  <script src="{% static 'js/demo.js' %}"></script>
   </body>
 </html>

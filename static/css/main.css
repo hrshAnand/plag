@@ -44,6 +44,8 @@
 }
 
 body, html {
+  background: #050505;
+  background-image: url({% static 'images/bg1.jfif' %})!important;
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
 }
@@ -167,6 +169,7 @@ iframe {
 }
 
 .container-login100 {
+  background-image: url({% static 'images/bg_login.jfif' %});
   width: 100%;  
   min-height: 100vh;
   display: -webkit-box;
@@ -177,16 +180,16 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;/*
-  background: #0250c5;
-  background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: -o-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: -moz-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: linear-gradient(bottom, #0250c5, #d43f8d);*/
-  background-image: url({$ static 'images/bg1.jpg'$});
-  background-color: #ffff;
+  padding: 0;
+  background: #000000;
+  background: -webkit-linear-gradient(bottom, #000, #252831);
+  background: -o-linear-gradient(bottom, #000, #252831);
+  background: -moz-linear-gradient(bottom, #000, #252831);
+  background: linear-gradient(bottom, #000, #252831);
+  background-color: #252831;
+  
   position: relative;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
 .container-login100::before {
@@ -198,7 +201,6 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url({$ static 'images/bg1.jpg'$});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -230,7 +232,7 @@ iframe {
   font-family: Raleway-Black;
   font-size: 30px;
   color: #333333;
-  line-height: 1.2;
+  line-height: 1;
   text-transform: uppercase;
   text-align: center;
 
@@ -311,8 +313,8 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-left: 23px;
-  padding-bottom: 5px;
+  padding-left: 2px;
+  padding-bottom: 1px;
   pointer-events: none;
 
   -webkit-transition: all 0.4s;
@@ -325,58 +327,6 @@ iframe {
   color: #d33f8d;
   padding-left: 18px;
 }
-
-/*==================================================================
-[ Restyle Checkbox ]*/
-
-.input-checkbox100 {
-  display: none;
-}
-
-.label-checkbox100 {
-  font-family: Raleway-Regular;
-  font-size: 16px;
-  color: #999999;
-  line-height: 1.2;
-
-  display: block;
-  position: relative;
-  padding-left: 26px;
-  cursor: pointer;
-}
-
-.label-checkbox100::before {
-  content: "\f00c";
-  font-family: FontAwesome;
-  font-size: 13px;
-  color: transparent;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 3px;
-  background: #fff;
-  border: 2px solid #d33f8d;
-  left: 0;
-  top: 48%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.input-checkbox100:checked + .label-checkbox100::before {
-  color: #d33f8d;
-}
-
 
 /*------------------------------------------------------------------
 [ Button ]*/
@@ -399,9 +349,9 @@ iframe {
   text-transform: uppercase;
 
   width: 100%;
-  height: 62px;
+  height: 60px;
   border-radius: 3px;
-  background: #d33f8d;
+  background: #252831;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -420,61 +370,6 @@ iframe {
 .login100-form-btn:hover {
   background: #333333;
 }
-
-/*------------------------------------------------------------------
-[ Button sign in with ]*/
-.btn-face,
-.btn-google {
-  font-family: Raleway-Bold;
-  font-size: 16px;
-  line-height: 1.2;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc((100% - 10px) / 2);
-  height: 40px;
-  border-radius: 3px;
-  border: 1px solid #e6e6e6;
-  background-color: #fff;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-
-.btn-face {
-  color: #3b5998;
-}
-
-.btn-face i {
-  font-size: 20px;
-  margin-right: 10px;
-  padding-bottom: 1px;
-}
-
-.btn-google {
-  color: #555555;
-}
-
-.btn-google img {
-  width: 19px;
-  margin-right: 10px;
-  padding-bottom: 1px;
-}
-
-
-.btn-face:hover,
-.btn-google:hover {
-  border-color: #d33f8d;
-}
-
 
 
 /*------------------------------------------------------------------

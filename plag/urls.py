@@ -22,7 +22,7 @@ from . import settings
 urlpatterns = [
 	path('admin/', admin.site.urls),
     url(r'^$',views.index,name='index'),
-	url(r'^special/',views.special,name='special'),
+	url(r'^upload_files/',views.upload_files,name='upload_files'),
 	url(r'^plagapp/',include('plagapp.urls')),
 	url(r'^logout/$',views.user_logout,name='logout'),
 

@@ -4,13 +4,36 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import FileSystemStorage
 
 def index(request):
 	return render(request,'plagapp/index.html')
 
 @login_required
-def special(request):
-	return HttpResponse("Logged in!")
+def upload_files(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'plagapp/upload.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request,'plagapp/upload.html')
+
+@login_required
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = DocumentForm()
+    return render(request, 'plagapp/upload.html', {
+        'form': form
+    })
+
 @login_required
 def user_logout(request):
 	logout(request)
@@ -50,7 +73,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('upload_files'))
             else:
                 return HttpResponse("Your account was inactive.")
         else:
