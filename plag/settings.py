@@ -28,7 +28,7 @@ SECRET_KEY = '_=9pq(!c_%67tc%5o5c(o8*e*#zv3sj4sv60$ce#pj70*%%92+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [plaigapp.herokuapp.com]
+ALLOWED_HOSTS = ['plaigapp.herokuapp.com',]
 
 
 # Application definition
