@@ -1,6 +1,73 @@
 {% extends 'plagapp/base.html' %}
 {% block body_block %}
 {% load static %}
+
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+        <form method="post" action="{% url 'plagapp:user_login' %}" class="login100-form validate-form">
+          {% csrf_token %}
+          <span class="login100-form-title p-b-55">
+            Login
+          </span>
+
+          <div class="wrap-input100 validate-input m-b-16">
+            <input class="input100" type="text" type="text"name="username" placeholder="Username">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <span class="lnr lnr-envelope"></span>
+            </span>
+          </div>
+
+          <div class="wrap-input100 validate-input m-b-16">
+            <input class="input100" type="password" name="password" placeholder="Password">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <span class="lnr lnr-lock"></span>
+            </span>
+          </div>
+<!--
+          <div class="contact100-form-checkbox m-l-4">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Remember me
+            </label>
+          </div> -->
+          <div class="container-login100-form-btn p-t-25">
+            <button class="login100-form-btn">
+              Login
+            </button>
+          </div>
+          <div class="text-center w-full p-t-115">
+            <span class="txt1">
+              Not a member?
+            </span>
+
+            <a class="txt1 bo1 hov1" href="#">
+              Sign up now             
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
  <div class="container" style="padding-top: 5%">
       <div >
       <div class="row">
@@ -8,21 +75,21 @@
           <div class="card card-signin my-5">
             <div class="card-body">
               <h5 class="card-title text-center" style="color: white;">Sign In</h5>
-              <form method="post" action="{% url 'plagapp:user_login' %}" class="form-signin">
-          		{% csrf_token %}
+              <form  class="form-signin">
+          		
           		{# A more "HTML" way of creating the login form#}
                 <div class="form-label-group">
-                  <input type="text"name="username" class="form-control" placeholder="Username" required autofocus>
+                  <input  class="form-control" placeholder="Username" required autofocus>
                   <label for="username">Username</label>
                 </div>
                 <div class="form-label-group">
                 	<input type="password" name="password" class="form-control"  placeholder="Password" required>
                   <label for="password">Password</label>
                 </div>
-                <!--<div class="custom-control custom-checkbox mb-3">
+                <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="customCheck1">
                   <label class="custom-control-label" for="customCheck1">Remember password</label>
-                </div>-->
+                </div>
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               </form>
             </div>
@@ -32,5 +99,5 @@
     </div>
   </div>
 </div>
-</div>
+</div>-->
 {% endblock %}
