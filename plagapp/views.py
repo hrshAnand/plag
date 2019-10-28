@@ -43,6 +43,7 @@ def register(request):
     registered = False
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
+        user_form.email = request.POST.get('email')
         user_form.username = request.POST.get('username')
         user_form.password = request.POST.get('password')
         if user_form.is_valid():
