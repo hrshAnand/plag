@@ -5,6 +5,7 @@
     <div class="container-login100">
       <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
       {% if registered %}
+      <h1>Username Taken</h1>
       {% else %}
       <form enctype="multipart/form-data" method="POST" class="login100-form validate-form">
           {% csrf_token %}
