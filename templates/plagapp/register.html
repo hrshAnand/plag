@@ -1,19 +1,39 @@
 {% extends "plagapp/base.html" %}
 {% load staticfiles %}
 {% block body_block %}
-  <div class="container">
-    <div class="jumbotron">
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
       {% if registered %}
-        <h1>Thank you for registering!</h1>
       {% else %}
-        <h1>Register Here</h1>
-        <h3>Just fill out the form.</h3>
-<form enctype="multipart/form-data" method="POST">
+      <form enctype="multipart/form-data" method="POST" class="login100-form validate-form">
           {% csrf_token %}
-          {{ user_form.as_p }}
-          {{ profile_form.as_p }}
-          <input type="submit" name="" value="Register">
-        </form>
+          <span class="login100-form-title p-b-55">
+          Sign Up!
+          </span>
+          <!-- {{ user_form.as_p }} -->
+          <!-- <input type="submit" name="" value="Register">
+        </form> -->
+            <div class="wrap-input100 validate-input m-b-16">
+            <input class="input100" type="text" type="text"name="username" placeholder="Username">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <span class="lnr lnr-envelope"></span>
+            </span>
+          </div>
+          <div class="wrap-input100 validate-input m-b-16">
+            <input class="input100" type="password" name="password" placeholder="Password">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <span class="lnr lnr-lock"></span>
+            </span>
+          </div>
+          <div class="container-login100-form-btn p-t-25">
+            <button class="login100-form-btn">
+             SignUp
+            </button>
+          </div>
+        </form> 
       {% endif %}
     </div>
   </div>
