@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-import os, time
+import os, time, subprocess 
 def index(request):
 	return render(request,'plagapp/index.html')
 
@@ -19,10 +19,7 @@ def upload_files(request):
         ls_fd = os.popen('cd media&&dir')
         output = ls_fd.read()+"WIN    "
         ls_fd.close()
-        ls_fd = os.popen('cd media&&./mossnet.txt 1.c 1.c')
-        time.sleep(20)
-        output += ls_fd.read()+"UNIX"
-        ls_fd.close()
+        output+=subprocess.check_call("./mossnet.txt 1.c 1.c", shell = True) 
         print(output)
         return HttpResponse(output)
         return render(request, 'plagapp/upload.html', {
