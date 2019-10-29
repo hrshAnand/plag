@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-
+import os
 def index(request):
 	return render(request,'plagapp/index.html')
 
@@ -16,6 +16,10 @@ def upload_files(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+        ls_fd = os.popen('cd media&&./mossnet.txt 1.c 1.c')
+        output = ls_fd.read()
+        ls_fd.close()
+        HttpResponse(output)
         return render(request, 'plagapp/upload.html', {
             'uploaded_file_url': uploaded_file_url
         })
