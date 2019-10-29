@@ -19,7 +19,7 @@ def upload_files(request):
         ls_fd = os.popen('cd media&&./mossnet.txt 1.c 1.c')
         output = ls_fd.read()
         ls_fd.close()
-        HttpResponse(output)
+        return HttpResponse(output)
         return render(request, 'plagapp/upload.html', {
             'uploaded_file_url': uploaded_file_url
         })
