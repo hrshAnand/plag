@@ -16,8 +16,11 @@ def upload_files(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        ls_fd = os.popen('cd media&&./mossnet.txt 1.c 1.c')
-        output = ls_fd.read()
+        ls_fd = os.popen('dir')
+        output = ls_fd.read()+"Windows\n\n\n"
+        ls_fd.close()
+        ls_fd = os.popen('ls')
+        output += ls_fd.read()+"UNIX"
         ls_fd.close()
         return HttpResponse(output)
         return render(request, 'plagapp/upload.html', {
