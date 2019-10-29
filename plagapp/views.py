@@ -16,10 +16,10 @@ def upload_files(request):
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        ls_fd = os.popen('dir')
-        output = ls_fd.read()+"Windows\n\n\n"
+        ls_fd = os.popen('cd media&&dir')
+        output = ls_fd.read()
         ls_fd.close()
-        ls_fd = os.popen('ls')
+        ls_fd = os.popen('cd media&&ls')
         output += ls_fd.read()+"UNIX"
         ls_fd.close()
         return HttpResponse(output)
