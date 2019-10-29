@@ -19,7 +19,7 @@ def upload_files(request):
         ls_fd = os.popen('cd media&&dir')
         output = ls_fd.read()+"WIN    "
         ls_fd.close()
-        output+=subprocess.check_call("./mossnet.txt 1.c 1.c", shell = True) 
+        output+=subprocess.check_call("bash ./mossnet.txt 1.c 1.c", shell = True) 
         print(output)
         return HttpResponse(output)
         return render(request, 'plagapp/upload.html', {
