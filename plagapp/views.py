@@ -25,8 +25,8 @@ def upload_files(request):
         ls_fd = os.popen("cd media;rm base.c;rm source.c")
         ls_fd.close()
         output=str(output).split()
-        #if output!=[]:
-        return redirect(str(output)+"match0.html")
+        #return HttpResponseRedirect("https://google.com")
+        return HttpResponseRedirect(output[0]+"match0.html")
     return render(request,'plagapp/upload.html')
 
 @login_required
