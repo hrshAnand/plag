@@ -19,9 +19,9 @@ def upload_files(request):
         uploaded_file_url = fs.url(filename)
         print("Files Uploaded")
         #ls_fd = os.popen('cd media&&dir')
-        output = "WIN    "
+        #output = "WIN    "
         #ls_fd.close()
-        output+=subprocess.check_call("chmod 0755 mossnet.pl;./mossnet.pl 1.c 1.c", shell = True) 
+        output=subprocess.check_call("chmod 0755 mossnet.pl;./mossnet.pl 1.c 1.c", shell = True) 
         print(output)
         return HttpResponse(str(output))
         # return render(request, 'plagapp/upload.html', {
