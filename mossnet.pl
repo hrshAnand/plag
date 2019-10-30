@@ -350,7 +350,7 @@ foreach $file (@ARGV) {
 print $sock "query 0 $opt_c\n";
 #print "Query submitted.  Waiting for the server's response.\n";
 &read_from_server();
-print $sock;
+print $sock "end";
 #close($sock);
 
 
