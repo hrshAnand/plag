@@ -20,10 +20,11 @@ def upload_files(request):
         #uploaded_file_url = fs.url(file1)
         ls_fd = os.popen("cd media;chmod 0755 mossnet.pl;./mossnet.pl base.c source.c")
         output = ls_fd.read()
+        print(output)
         ls_fd.close()
         ls_fd = os.popen("cd media;rm base.c;rm source.c")
         ls_fd.close()
-        return HttpResponse(str(output)+"/match0.html")
+        return HttpResponse(str(output))
     return render(request,'plagapp/upload.html')
 
 @login_required
