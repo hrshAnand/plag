@@ -26,7 +26,7 @@ def upload_files(request):
         ls_fd.close()
         output=str(output).split()
         #return HttpResponseRedirect("https://google.com")
-        return HttpResponseRedirect(output[0]+"match0.html")
+        return HttpResponseRedirect(output[0]+"/match0.html")
     return render(request,'plagapp/upload.html')
 
 @login_required
