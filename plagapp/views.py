@@ -23,7 +23,7 @@ def upload_files(request):
         #ls_fd.close()
         output+=subprocess.check_call("chmod 0755 mossnet.pl;./mossnet.pl 1.c 1.c", shell = True) 
         print(output)
-        return HttpResponse(output)
+        return HttpResponse(str(output))
         # return render(request, 'plagapp/upload.html', {
         #     'uploaded_file_url': uploaded_file_url
         # })
