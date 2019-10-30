@@ -14,19 +14,14 @@ def upload_files(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        #print("Uploading Files....")
+        filename = fs.save("base.c", myfile)
         uploaded_file_url = fs.url(filename)
-        #print("Files Uploaded")
-        ls_fd = os.popen("chmod 0755 mossnet.pl;./mossnet.pl 1.c 1.c")
+        ls_fd = os.popen("cd media;chmod 0755 mossnet.pl;./mossnet.pl base.c base.c")
         output = ls_fd.read()
         ls_fd.close()
-        #output=subprocess.check_call("chmod 0755 mossnet.pl;./mossnet.pl 1.c 1.c", shell = True) 
-        #print(output)
+        ls_fd = os.popen("cd media;rm base.c")
+        ls_fd.close()
         return HttpResponse(output)
-        # return render(request, 'plagapp/upload.html', {
-        #     'uploaded_file_url': uploaded_file_url
-        # })
     return render(request,'plagapp/upload.html')
 
 @login_required
