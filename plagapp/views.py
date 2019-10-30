@@ -18,12 +18,12 @@ def upload_files(request):
         file1 = fs.save("base.c", f1)
         file2 = fs.save("source.c", f2)
         #uploaded_file_url = fs.url(file1)
-        ls_fd = os.popen("cd media;chmod 0755 mossnet.pl;./mossnet.pl base.c base.c")
+        ls_fd = os.popen("cd media;chmod 0755 mossnet.pl;./mossnet.pl base.c source.c")
         output = ls_fd.read()
         ls_fd.close()
-        ls_fd = os.popen("cd media;rm base.c")
+        ls_fd = os.popen("cd media;rm base.c;rm source.c")
         ls_fd.close()
-        return HttpResponse(output)
+        return HttpResponse(str(output)+"/match0.html")
     return render(request,'plagapp/upload.html')
 
 @login_required
