@@ -15,15 +15,15 @@ def upload_files(request):
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
-        print("Uploading Files....")
+        #print("Uploading Files....")
         uploaded_file_url = fs.url(filename)
-        print("Files Uploaded")
+        #print("Files Uploaded")
         #ls_fd = os.popen('cd media&&dir')
         #output = "WIN    "
         #ls_fd.close()
         output=subprocess.check_call("chmod 0755 mossnet.pl;./mossnet.pl 1.c 1.c", shell = True) 
-        print(output)
-        return HttpResponse(str(output))
+        #print(output)
+        return HttpResponse(output)
         # return render(request, 'plagapp/upload.html', {
         #     'uploaded_file_url': uploaded_file_url
         # })
