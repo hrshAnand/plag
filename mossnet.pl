@@ -255,7 +255,7 @@ while (@ARGV && ($_ = $ARGV[0]) =~ /^-(.)(.*)/) {
 #
 # Make sure all the argument files exist and are readable.
 #
-print "Checking files . . . \n";
+#print "Checking files . . . \n";
 $i = 0;
 while($i < $bindex)
 {
@@ -274,7 +274,7 @@ foreach $file (@ARGV)
 if ("@ARGV" eq '') {
     die "No files submitted.\n $usage";
 }
-print "OK\n";
+#print "OK\n";
 
 #
 # Now the real processing begins.
@@ -307,27 +307,27 @@ sub upload_file {
     }
     close(F);
 
-    print "Uploading $file ...";
-    print $sock "file $id $lang $size $file\n";
+    #print "Uploading $file ...";
+    #print $sock "file $id $lang $size $file\n";
     open(F,$file);
     while (<F>) {
 	print $sock $_;
     }
     close(F);
-    print "done.\n";
-}
+    #print "done.\n";
+}   
 
 
-print $sock "moss $userid\n";      # authenticate user
-print $sock "directory $opt_d\n";
-print $sock "X $opt_x\n";
-print $sock "maxmatches $opt_m\n";
-print $sock "show $opt_n\n";
+#print $sock "moss $userid\n";      # authenticate user
+#print $sock "directory $opt_d\n";
+#print $sock "X $opt_x\n";
+#print $sock "maxmatches $opt_m\n";
+#print $sock "show $opt_n\n";
 
 #
 # confirm that we have a supported languages
 #
-print $sock "language $opt_l\n";
+#print $sock "language $opt_l\n";
 $msg = <$sock>;
 chop($msg);
 if ($msg eq "no") {
@@ -347,8 +347,8 @@ foreach $file (@ARGV) {
     &upload_file($file,$setid++,$opt_l); 
 }
 
-print $sock "query 0 $opt_c\n";
-print "Query submitted.  Waiting for the server's response.\n";
+#print $sock "query 0 $opt_c\n";
+#print "Query submitted.  Waiting for the server's response.\n";
 &read_from_server();
 print $sock "end\n";
 close($sock);
