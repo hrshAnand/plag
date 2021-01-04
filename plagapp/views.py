@@ -10,10 +10,10 @@ import os
 
 
 def IndexView(request):
-    form = FileForm(request.POST, request.FILES)
 
     if request.method == "POST":
-        if True:
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
             print("we r in")
             print(form)
             f1 = request.FILES['file1']
@@ -36,7 +36,7 @@ def IndexView(request):
 
             ext = f2n.split('.')[-1]
             if ext not in lans:
-                return HttpResponse(".{} files are not yet supported!\n You can only check plagiarism for the following files:{}".format(ext, lans.keys()))
+                return HttpResponse(".{} files are not yet supported!\n You can only check plagiarism for the following files: {}".format(ext, ", ".join(list(lans.keys()))))
 
             ls_fd = os.popen(
                 "cd media;chmod 0755 mossnet.pl;./mossnet.pl -l {} {} {} ".format(lans[ext], f1n, f2n))
