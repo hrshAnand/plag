@@ -11,7 +11,9 @@
             Plagiarism Checker
           </span>
           
-          {{form.as_p}}
+          {% for field in form %}
+          {{field.label.tag}} {{field}} <br>
+          {{% endfor %}}
           
           <div class="container-login100-form-btn p-t-25">
             <button type="submit" class="login100-form-btn">
