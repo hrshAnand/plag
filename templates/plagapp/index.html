@@ -1,53 +1,27 @@
 {% extends 'plagapp/base.html' %}
 {% block body_block %}
-{% load static %}
+{% load static %}   
 
 <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-        <form method="post" action="{% url 'plagapp:user_login' %}" class="login100-form validate-form">
+        <form method="POST" class="login100-form validate-form" enctype="multipart/form-data">
           {% csrf_token %}
           <span class="login100-form-title p-b-55">
-            Login
+            Plagiarism Checker
           </span>
-          <div class="wrap-input100 validate-input m-b-16">
-            <input class="input100" type="text" type="text"name="username" placeholder="Username">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <span class="lnr lnr-envelope"></span>
-            </span>
-          </div>
-          <div class="wrap-input100 validate-input m-b-16">
-            <input class="input100" type="password" name="password" placeholder="Password">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <span class="lnr lnr-lock"></span>
-            </span>
-          </div>
-
-<!--
-          <div class="contact100-form-checkbox m-l-4">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Remember me
-            </label>
-          </div> -->
+          
+          {{form}}
+          
           <div class="container-login100-form-btn p-t-25">
-            <button class="login100-form-btn">
-              Login
+            <button type="submit" class="login100-form-btn">
+              Check!
             </button>
           </div>
-          <div class="text-center w-full p-t-75">
-            <span class="txt1">
-            Not a member? 
-            </span>
-
-            <a class="txt1 bo1 hov1" href="{% url 'plagapp:register' %}">
-             Sign up now             
-            </a>
-          </div>
+          
         </form>
       </div>
     </div>
   </div>
+
 {% endblock %}
