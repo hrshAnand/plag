@@ -21,14 +21,15 @@ def IndexView(request):
             f2 = request.FILES['f2']
 
             fs = FileSystemStorage()
-            fs.save("base.c", f1)
-            fs.save("source.c", f2)
+            f1n = fs.save(f1.name, f1)
+            f2n = fs.save(f2.name, f2)
+            
 
-            ls_fd = os.popen("cd media;chmod 0755 mossnet.pl;./mossnet.pl base.c source.c")
+            ls_fd = os.popen("cd media;chmod 0755 mossnet.pl;./mossnet.pl -l {} {} {} ".format(f1n.split('.')[-1],f1n, f2n))
             output = ls_fd.read()
             print(output)
             ls_fd.close()
-            ls_fd = os.popen("rm base.c;rm source.c;cd ..")
+            ls_fd = os.popen("rm {};rm {};cd ..".format(f1n,f2n))
             ls_fd.close()
             output = str(output).split()
             return HttpResponseRedirect(output[0])
