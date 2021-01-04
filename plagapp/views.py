@@ -32,11 +32,11 @@ def IndexView(request):
             }
 
             if f1n.split('.')[-1] != f2n.split('.')[-1]:
-                return HttpResponseRedirect("Files of different languages!")
+                return HttpResponse("Files of different languages!")
 
             ext = f2n.split('.')[-1]
             if ext not in lans:
-                return HttpResponseRedirect(".{} files are not yet supported!\n You can only check plagiarism for the following files:{}".format(ext, lans.items()))
+                return HttpResponse(".{} files are not yet supported!\n You can only check plagiarism for the following files:{}".format(ext, lans.items()))
 
             ls_fd = os.popen(
                 "cd media;chmod 0755 mossnet.pl;./mossnet.pl -l {} {} {} ".format(lans[ext], f1n, f2n))
