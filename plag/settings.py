@@ -1,4 +1,6 @@
 import os
+import random
+import string
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -11,10 +13,13 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_=9pq(!c_%67tc%5o5c(o8*e*#zv3sj4sv60$ce#pj70*%%92+'
+key = ""
+for _ in range(10):
+    key += random.choice(string.ascii_letters)
+SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['plaigapp.herokuapp.com','127.0.0.1','plag.herokuapp.com',]
 
