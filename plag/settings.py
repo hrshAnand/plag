@@ -5,14 +5,10 @@ import string
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR = os.path.join(BASE_DIR,'static')
-MEDIA_DIR = os.path.join(BASE_DIR,'media')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 key = ""
 for _ in range(10):
     key += random.choice(string.ascii_letters)
@@ -21,7 +17,7 @@ SECRET_KEY = key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['plaigapp.herokuapp.com','127.0.0.1','plag.herokuapp.com',]
+ALLOWED_HOSTS = ['plaigapp.herokuapp.com', '127.0.0.1', 'plag.herokuapp.com', ]
 
 
 # Application definition
@@ -52,7 +48,7 @@ ROOT_URLCONF = 'plag.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,9 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'plag.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -118,8 +111,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 #STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [STATIC_DIR,]
-#STATIC_ROOT=os.path.join(BASE_DIR,'assets')
+STATICFILES_DIRS = [STATIC_DIR, ]
+# STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 LOGIN_URL = '/plagapp/user_login/'
