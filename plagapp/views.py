@@ -10,8 +10,6 @@ def IndexView(request):
     if request.method == "POST":
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
-            print("we r in")
-            print(form)
             f1 = request.FILES['file1']
             f2 = request.FILES['file2']
 
