@@ -16,8 +16,8 @@ def IndexView(request):
         if True:
             print("we r in")
             print(form)
-            f1 = request.FILES['f1']
-            f2 = request.FILES['f2']
+            f1 = request.FILES['file1']
+            f2 = request.FILES['file2']
 
             fs = FileSystemStorage()
             f1n = fs.save(f1.name, f1)
@@ -36,7 +36,7 @@ def IndexView(request):
 
             ext = f2n.split('.')[-1]
             if ext not in lans:
-                return HttpResponse(".{} files are not yet supported!\n You can only check plagiarism for the following files:{}".format(ext, lans.items()))
+                return HttpResponse(".{} files are not yet supported!\n You can only check plagiarism for the following files:{}".format(ext, lans.keys()))
 
             ls_fd = os.popen(
                 "cd media;chmod 0755 mossnet.pl;./mossnet.pl -l {} {} {} ".format(lans[ext], f1n, f2n))
