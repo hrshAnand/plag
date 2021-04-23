@@ -165,7 +165,7 @@ $usage = "usage: moss [-x] [-l language] [-d] [-b basefile1] ... [-b basefilen] 
 # The userid is used to authenticate your queries to the server; don't change it!
 #
 #$userid=496860240;
-$userid=167973318
+$userid=167973318;
 
 #
 # Process the command line options.  This is done in a non-standard
