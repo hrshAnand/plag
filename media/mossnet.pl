@@ -154,7 +154,7 @@ use IO::Socket;
 # As of the date this script was written, the following languages were supported.  This script will work with 
 # languages added later however.  Check the moss website for the full list of supported languages.
 #
-@languages = ("c", "cc", "java", "ml", "pascal", "ada", "lisp", "scheme", "haskell", "fortran", "ascii", "vhdl", "perl", "matlab", "python", "mips", "prolog", "spice", "vb", "csharp", "modula2", "a8086", "javascript", "plsql");
+@languages = ("c", "cc", "java", "ml", "pascal", "ada", "lisp", "scheme", "haskell", "fortran", "ascii", "vhdl", "perl", "tcl","matlab", "python", "mips", "prolog", "spice", "vb", "csharp", "modula2", "a8086", "javascript", "plsql");
 
 $server = 'moss.stanford.edu';
 $port = '7690';

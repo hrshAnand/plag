@@ -24,6 +24,7 @@ def IndexView(request):
                 'cs': 'csharp',
                 'js': 'javascript',
                 'm': 'matlab',
+                'tcl': 'tcl'
             }
 
             if f1n.split('.')[-1] != f2n.split('.')[-1]:
