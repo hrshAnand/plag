@@ -23,6 +23,7 @@ def IndexView(request):
                 'py': 'python',
                 'cs': 'csharp',
                 'js': 'javascript',
+                'm': 'matlab',
             }
 
             if f1n.split('.')[-1] != f2n.split('.')[-1]:
