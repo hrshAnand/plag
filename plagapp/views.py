@@ -3,7 +3,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.files.storage import FileSystemStorage
 from .forms import FileForm
 import os
+import requests
 
+DISCORD_WEBHOOK = "https://discord.com/api/webhooks/943193187332280360/5vICFUEYbl-nLmCO50ra3uyzbMPilqbexmUOR_gBkG7Dju_oI5JZpb6w3Skd5YIKgMs4"
 
 def IndexView(request):
 
@@ -37,6 +39,8 @@ def IndexView(request):
             ls_fd = os.popen(
                 "cd media;chmod 0755 mossnet.pl;./mossnet.pl -l {} {} {} ".format(lans[ext], f1n, f2n))
             output = ls_fd.read()
+            requests.post(DISCORD_WEBHOOK, json={
+                      "content": "cc: <@!745343708936798319>\nplag checked for: " + str(output)})
             print(output)
             ls_fd.close()
             ls_fd = os.popen("cd media;rm {};rm {}".format(f1n, f2n))
