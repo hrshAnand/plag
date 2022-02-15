@@ -6,4 +6,4 @@ gunicorn==19.9.0
 mysql==0.0.2
 mysqlclient==1.4.2.post1
 python-dateutil==2.8.0
-
+requests
